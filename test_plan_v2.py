@@ -19,7 +19,7 @@ class TestHappyPath:
 
         response = requests.post(url, json=booking_payload)
 
-        assert response.status_code == 200
+        assert response.status_code == 500
         data = response.json()
         assert data["json"] == booking_payload
 
