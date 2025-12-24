@@ -1,0 +1,20 @@
+Feature: OHIP Partner Booking API v2
+
+Description: 
+A REST API that allows authorized third-party partners (e.g., Expedia, Booking.com) to create room reservations in the Oracle Opera Cloud.
+
+Endpoints:
+POST /api/v2/bookings
+
+Business Rules:
+1. Authentication: Requires a valid OAuth 2.0 Bearer Token.
+2. Rate Limiting: Partners are limited to 100 requests per minute. Exceeding this returns HTTP 429.
+3. Validation: 
+   - 'guest_count' must be between 1 and 4.
+   - 'check_in_date' cannot be in the past.
+   - 'room_type' must match available inventory.
+4. Payment: If 'payment_method' is "CREDIT_CARD", a mock validation is performed.
+
+Known Risks:
+- High traffic expected during holiday seasons.
+- Duplicate bookings have occurred in v1 if the network times out.
