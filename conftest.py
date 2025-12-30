@@ -2,7 +2,7 @@
 Pytest configuration and shared fixtures for OHIP Partner Booking API v2 tests
 """
 
-import pytest
+import pytest  # type: ignore[import]
 
 from data_factory import BookingDataFactory
 
